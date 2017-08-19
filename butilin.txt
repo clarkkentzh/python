@@ -1,0 +1,10 @@
+内建函数： id    type     help    dir
+
+chr str  int  float   bool   list  tulpe   dict  set 
+bin   oct   ord    hex
+
+input  raw_input  print
+
+range  xrange  zip  map    filter  reduce
+
+

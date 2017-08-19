@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "errors1.py", line 8, in fun
+    c = a / b
+TypeError: unsupported operand type(s) for /: 'int' and 'str'
+Traceback (most recent call last):
+  File "errors1.py", line 8, in fun
+    c = a / b
+ZeroDivisionError: division by zero
+Traceback (most recent call last):
+  File "errors1.py", line 8, in fun
+    c = a / b
+TypeError: unsupported operand type(s) for /: 'int' and 'str'
+Traceback (most recent call last):
+  File "errors1.py", line 8, in fun
+    c = a / b
+TypeError: unsupported operand type(s) for /: 'int' and 'str'
+Traceback (most recent call last):
+  File "errors1.py", line 8, in fun
+    c = a / b
+TypeError: unsupported operand type(s) for /: 'int' and 'str'
+Traceback (most recent call last):
+  File "errors1.py", line 8, in fun
+    c = a / b
+TypeError: unsupported operand type(s) for /: 'int' and 'str'
+Traceback (most recent call last):
+  File "errors1.py", line 8, in fun
+    c = a / b
+TypeError: unsupported operand type(s) for /: 'int' and 'str'
+Traceback (most recent call last):
+  File "errors1.py", line 8, in fun
+    c = a / b
+TypeError: unsupported operand type(s) for /: 'int' and 'str'
