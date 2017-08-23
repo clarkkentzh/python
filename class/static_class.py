@@ -17,7 +17,6 @@ Classs.fun1()
 
 a = Static()
 a.funs()
-
 b = Classs()
 b.fun1()
 

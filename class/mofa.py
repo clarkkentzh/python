@@ -48,20 +48,20 @@ class Zhao(object):
     def __len__(self):
         return len(self.dict)
 
-# a = Zhao()  #这里先触发__new__方法,再触发__init__方法，若new方法没有返回对象，则init 方法不会触发
-# print a.__doc__
-#
-# a("call")  #这个可以触发__call__方法
-# # del(a)  #这个可以触发__del__方法
-# print a.name
-# print a.__module__
-#
-# a.value = 90
-# print a.value
-# del a.value
-# print a.__dict__
-#
-# print "++++++++++++++++"
-# a["a"] = 1
-# print a["a"]
-# print len(a)
+a = Zhao()  #这里先触发__new__方法,再触发__init__方法，若new方法没有返回对象，则init 方法不会触发
+print a.__doc__
+
+a("call")  #这个可以触发__call__方法
+# del(a)  #这个可以触发__del__方法
+print a.name
+print a.__module__
+
+a.value = 90
+print a.value
+del a.value
+print a.__dict__
+
+print "++++++++++++++++"
+a["a"] = 1
+print a["a"]
+print len(a)

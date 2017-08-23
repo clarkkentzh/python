@@ -33,6 +33,7 @@ three.fun()
 two.f = fun
 two.f(-1)
 
+
 #3 用新模块方法创建私有变量
 import new
 two.f = new.instancemethod(fun,two,Zhao)

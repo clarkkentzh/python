@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Python 标准输出 sys.stdout 重定向 - turtle_fly - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=m_FXmwz3wxZoecUwNEK23PAzc-j9vbX_C6MblJ5ouMc1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/gray/bundle-gray.css?v=HL2WWD0LJEIKd_qaZrrRKuZpscDuS7PCV4RyAclJuYE1"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/gray/bundle-gray-mobile.css?v=wGCNV4krfvnjPx6zPb8JdR_GN4QcU1BhQx7B4VUwPUQ1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/turtle-fly/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/turtle-fly/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/turtle-fly/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">var currentBlogApp = 'turtle-fly', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=-sYWYg_JMmWLy2BUXo9NpUbvg7jV5TLtD6QKvvKrgzg1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="banner"><div id="bnr_pic">
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/turtle-fly/">turtle_fly的新世界</a><br>
+	</div>
+	<div class="headerDis">求知若渴，虚心若愚。</div>
+</div>
+</div></div>
+<div id="main">
+	<!-- left starts -->
+	<div id="left">
+	<div id="left_border">
+		<DIV id="mystats">
+			<br>
+				<div id="blog_stats">
+<!--done-->
+<div class="blogStats">
+随笔- 18&nbsp;
+文章- 1&nbsp;
+评论- 0&nbsp;
+
+</div></div>
+
+		</DIV>
+		<div id="mylinks">
+<!--done-->
+<a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a>&nbsp;&nbsp;<a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/turtle-fly/">首页</a>&nbsp;&nbsp;<a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a>&nbsp;&nbsp;<a id="MyLinks1_NewArticleLink" class="menu" href="../../EnterMyBlog.aspx?NewArticle=1">新文章</a>&nbsp;&nbsp;<a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/turtle_fly">联系</a>&nbsp;&nbsp;<a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a>&nbsp;&nbsp;<a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/turtle-fly/rss">订阅</a>&nbsp;<a id="blog_nav_rss_image" href="http://www.cnblogs.com/turtle-fly/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a></div>
+		<div id="topics">
+
+<div id="post_detail">
+<!--done-->
+<div class = "post">
+	<div class = "postTitle">
+		<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/turtle-fly/p/3280519.html">Python 标准输出 sys.stdout 重定向</a>
+	</div>
+	<div id="cnblogs_post_body"><p>本文环境：Python 2.7&nbsp;</p>
+<p>使用 print obj 而非 print(obj)</p>
+<p>&nbsp;</p>
+<h1>一些背景</h1>
+<h3>sys.stdout 与 print</h3>
+<p>当我们在 Python 中打印对象调用 print obj 时候，事实上是调用了 sys.stdout.write(obj+'\n')</p>
+<p>print 将你需要的内容打印到了控制台，然后追加了一个换行符</p>
+<p><span style="color: #3366ff;">print 会调用 sys.stdout 的 write 方法</span></p>
+<p>以下两行在事实上等价：</p>
+<div class="cnblogs_code">
+<pre>sys.stdout.write(<span style="color: #800000;">'</span><span style="color: #800000;">hello</span><span style="color: #800000;">'</span>+<span style="color: #800000;">'</span><span style="color: #800000;">\n</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+</span><span style="color: #0000ff;">print</span> <span style="color: #800000;">'</span><span style="color: #800000;">hello</span><span style="color: #800000;">'</span></pre>
+</div>
+<h3>sys.stdin 与 raw_input</h3>
+<p>当我们用 raw_input('Input promption: ') 时，事实上是先把提示信息输出，然后捕获输入</p>
+<p>以下两组在事实上等价：</p>
+<div class="cnblogs_code">
+<pre>hi=raw_input(<span style="color: #800000;">'</span><span style="color: #800000;">hello? </span><span style="color: #800000;">'</span><span style="color: #000000;">)
+
+</span><span style="color: #0000ff;">print</span> <span style="color: #800000;">'</span><span style="color: #800000;">hello? </span><span style="color: #800000;">'</span>, <span style="color: #008000;">#</span><span style="color: #008000;">comma to stay in the same line</span>
+hi=sys.stdin.readline()[:-1] <span style="color: #008000;">#</span><span style="color: #008000;"> -1 to discard the '\n' in input stream</span></pre>
+</div>
+<p>&nbsp;</p>
+<h1>从控制台重定向到文件</h1>
+<p>原始的 sys.stdout 指向控制台</p>
+<p>如果把文件的对象的引用赋给 sys.stdout，那么 print 调用的就是文件对象的 write 方法</p>
+<div class="cnblogs_code">
+<pre>f_handler=open(<span style="color: #800000;">'</span><span style="color: #800000;">out.log</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">w</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+sys.stdout</span>=<span style="color: #000000;">f_handler
+</span><span style="color: #0000ff;">print</span> <span style="color: #800000;">'</span><span style="color: #800000;">hello</span><span style="color: #800000;">'</span>
+<span style="color: #008000;">#</span><span style="color: #008000;"> this hello can't be viewed on concole</span><span style="color: #008000;">
+#</span><span style="color: #008000;"> this hello is in file out.log</span></pre>
+</div>
+<p>记住，如果你还想在控制台打印一些东西的话，最好先将原始的控制台对象引用保存下来，向文件中打印之后再恢复 sys.stdout</p>
+<div class="cnblogs_code">
+<pre><span style="color: #800080;">__console__</span>=<span style="color: #000000;">sys.stdout
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;"> redirection start</span><span style="color: #008000;">
+#</span><span style="color: #008000;"> ...</span><span style="color: #008000;">
+#</span><span style="color: #008000;"> redirection end</span>
+<span style="color: #000000;">
+sys.stdout</span>=<span style="color: #800080;">__console__</span></pre>
+</div>
+<h1>同时重定向到控制台和文件</h1>
+<p>如果我们希望打印的内容一方面输出到控制台，另一方面输出到文件作为日志保存，那么该怎么办？</p>
+<p>将打印的内容保留在内存中，而不是一打印就将 buffer 释放刷新，那么放到一个字符串区域中会怎样？</p>
+<div class="cnblogs_code">
+<pre>a=<span style="color: #800000;">''</span><span style="color: #000000;">
+sys.stdout</span>=<span style="color: #000000;">a
+</span><span style="color: #0000ff;">print</span> <span style="color: #800000;">'</span><span style="color: #800000;">hello</span><span style="color: #800000;">'</span></pre>
+</div>
+<p>OK，上述代码是无法正常运行的</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">Traceback (most recent call last):
+  File </span><span style="color: #800000;">".</span><span style="color: #800000;">\hello.py</span><span style="color: #800000;">"</span>, line xx, <span style="color: #0000ff;">in</span> &lt;module&gt;
+    <span style="color: #0000ff;">print</span> <span style="color: #800000;">'</span><span style="color: #800000;">hello</span><span style="color: #800000;">'</span><span style="color: #000000;">
+AttributeError: </span><span style="color: #800000;">'</span><span style="color: #800000;">str</span><span style="color: #800000;">'</span> object has no attribute <span style="color: #800000;">'</span><span style="color: #800000;">write</span><span style="color: #800000;">'</span></pre>
+</div>
+<p>错误很明显，就是上面强调过的，在尝试调用 sys.stdout.write() 的时候，发现没有 write 方法</p>
+<p>另外，这里之所以提示 attribute error 而不是找不到函数等等，我猜想是因为 python 将对象/类的函数指针记录作为对象/类的一个属性来对待，只是保留了函数的入口地址</p>
+<p>既然这样，那么我们必须给重定向到的对象实现一个 write 方法：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> sys
+
+</span><span style="color: #0000ff;">class</span> <span style="color: #800080;">__redirection__</span><span style="color: #000000;">:
+
+    </span><span style="color: #0000ff;">def</span> <span style="color: #800080;">__init__</span><span style="color: #000000;">(self):
+        self.buff</span>=<span style="color: #800000;">''</span><span style="color: #000000;">
+        self.</span><span style="color: #800080;">__console__</span>=<span style="color: #000000;">sys.stdout
+
+    </span><span style="color: #0000ff;">def</span><span style="color: #000000;"> write(self, output_stream):
+        self.buff</span>+=<span style="color: #000000;">output_stream
+
+    </span><span style="color: #0000ff;">def</span><span style="color: #000000;"> to_console(self):
+        sys.stdout</span>=self.<span style="color: #800080;">__console__</span>
+        <span style="color: #0000ff;">print</span><span style="color: #000000;"> self.buff
+
+    </span><span style="color: #0000ff;">def</span><span style="color: #000000;"> to_file(self, file_path):
+        f</span>=open(file_path,<span style="color: #800000;">'</span><span style="color: #800000;">w</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+        sys.stdout</span>=<span style="color: #000000;">f
+        </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> self.buff
+        f.close()
+
+    </span><span style="color: #0000ff;">def</span><span style="color: #000000;"> flush(self):
+        self.buff</span>=<span style="color: #800000;">''</span>
+
+    <span style="color: #0000ff;">def</span><span style="color: #000000;"> reset(self):
+        sys.stdout</span>=self.<span style="color: #800080;">__console__</span>
+
+
+<span style="color: #0000ff;">if</span> <span style="color: #800080;">__name__</span>==<span style="color: #800000;">"</span><span style="color: #800000;">__main__</span><span style="color: #800000;">"</span><span style="color: #000000;">:
+    </span><span style="color: #008000;">#</span><span style="color: #008000;"> redirection</span>
+    r_obj=<span style="color: #800080;">__redirection__</span><span style="color: #000000;">()
+    sys.stdout</span>=<span style="color: #000000;">r_obj
+
+    </span><span style="color: #008000;">#</span><span style="color: #008000;"> get output stream</span>
+    <span style="color: #0000ff;">print</span> <span style="color: #800000;">'</span><span style="color: #800000;">hello</span><span style="color: #800000;">'</span>
+    <span style="color: #0000ff;">print</span> <span style="color: #800000;">'</span><span style="color: #800000;">there</span><span style="color: #800000;">'</span>
+
+    <span style="color: #008000;">#</span><span style="color: #008000;"> redirect to console</span>
+<span style="color: #000000;">    r_obj.to_console()
+
+    </span><span style="color: #008000;">#</span><span style="color: #008000;"> redirect to file</span>
+    r_obj.to_file(<span style="color: #800000;">'</span><span style="color: #800000;">out.log</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+
+    </span><span style="color: #008000;">#</span><span style="color: #008000;"> flush buffer</span>
+<span style="color: #000000;">    r_obj.flush()
+
+    </span><span style="color: #008000;">#</span><span style="color: #008000;"> reset</span>
+    r_obj.reset()</pre>
+</div>
+<p>同样的，sys.stderr, sys.stdin 也都可以被重定向到多个地址，举一反三的事情就自己动手实践吧</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+	<div class = "postDesc"><img src="/skins/gray/images/speech.gif" align="absmiddle" />&nbsp;posted on <span id="post-date">2013-08-25 10:45</span> <a href='http://www.cnblogs.com/turtle-fly/'>turtle_fly</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=3280519" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(3280519);return false;">收藏</a></div>
+</div>
+<script type="text/javascript">var allowComments=true,cb_blogId=135500,cb_entryId=3280519,cb_blogApp=currentBlogApp,cb_blogUserGuid='b3255b3c-b43b-e211-aa8f-842b2b196315',cb_entryCreatedDate='2013/8/25 10:45:00';loadViewCount(cb_entryId);</script>
+
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+</script>
+</div>
+
+
+		</div>
+	</div>
+	</div>
+	<!-- left ends -->
+	<!-- right starts -->
+	<div id="right">
+		<!-- 右侧工具部分 -->
+		<div id="right_content">
+
+
+<!--done-->
+<h1 class="listtitle" style="padding-top:14px;padding-left:42px;">公告</h1>
+<div class="newsItem">
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+
+				<DIV id="leftcontentcontainer">
+					<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+				</DIV>
+
+		</div>
+		<!-- //右侧工具部分 -->
+	</div>
+	<!-- right ends -->
+	<div class="clear"></div>
+</div>
+<div id="footer">
+<!--done-->
+Copyright &copy;2017 turtle_fly</div>
+
+</body>
+</html>
