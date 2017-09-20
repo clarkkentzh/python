@@ -8,7 +8,7 @@ import sys
 a = sys.argv
 print a         #是变量，专门用来向Python解释器传递命令行参数
 # sys.exit()       #这个方法用来推出当前程序
-# print sys.path         #查找目录所在模块
+print sys.path         #查找目录所在模块
 
 
 import os
@@ -28,8 +28,8 @@ import random
 # print random.randrange(1,6,2)  #[1,6)之间的步长为2的随机整数
 # print random.choice([1,2,3,4,5])  # 返回列表或元组中的一个随机数
 
-import shutil
-
-shutil.copyfile(file1,file2) # 复制文件，文件名加引号
-shutil.copy(file1,dir1)   # 复制文件到文件夹
-shutil.copytree(dir1,dir2)  # 复制文件夹
+# import shutil
+#
+# shutil.copyfile(file1,file2) # 复制文件，文件名加引号
+# shutil.copy(file1,dir1)   # 复制文件到文件夹
+# shutil.copytree(dir1,dir2)  # 复制文件夹

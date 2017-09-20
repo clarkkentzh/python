@@ -22,8 +22,8 @@ fds = open("writ.txt","w+")
 fds.write("hahahahahahahahah \n zzzzz\n")
 fds.write("zhaohong\n")
 
-# writelines是将列表写入文件
-l = ["hello","world"]
+# writelines是将列表分解写入文件
+l = ["haha","zzzzworld"]
 fds.writelines(l)
 
 fds.close()

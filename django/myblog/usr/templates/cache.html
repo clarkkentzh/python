@@ -1,0 +1,20 @@
+{%load cache%}
+<!DOCTYPE html>
+<!-- 这是第三种设置缓冲的方法，全局的三个中间件必须得注释掉 -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>cache</title>
+</head>
+
+<body>
+  <h1>{{ctime}}</h1>
+  <h1>{{ctime}}</h1>
+  {%cache 5 ha%}
+  <h1>{{ctime}}</h1>
+  <h1>{{ctime}}</h1>
+  {%endcache%}
+</body>
+</html>

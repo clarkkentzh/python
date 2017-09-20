@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+  <title>登录</title>
+  <style>
+  * {
+    margin:0px;
+    padding:0px;
+  }
+  body {
+    background: #060e1b;
+  }
+  .form {
+    width:400px;
+    height:350px;
+    border:1px solid #fff;
+    box-shadow: 0 0 10px #fff;
+    padding:0px;
+    border-radius: 5px;
+    display: inline-block;
+    background: rgba(6,14,27, 0.5);
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left: -200px;
+    margin-top: -200px;
+
+  }
+  .tits {
+    height:40px;
+    font-size: 25px;
+    color:blue;
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 5px;
+    background: rgba(220,220,220,0.5);
+    border-radius: 5px;
+  }
+  .form-group {
+    padding:0px 10px;
+    color:blue;
+    font-size: 20px;
+  }
+  .clark {
+    color:yellow;
+    text-align: center;
+    font-size: 30px;
+  }
+  </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+  {%if a == 1%}
+  <form method="post" class="container form">
+    {%csrf_token%}
+    <div class="tits">登录</div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">用户名:</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用户号" required name="username">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">密　码:</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" required name="password">
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">登 录</button>
+      <a href="/reg/" class="btn btn-success">注 册</a>
+    </div>
+
+    <div class="clark">clark blog</div>
+
+  </form>
+  {%elif a == 0%}
+  <form method="post" class="container form">
+    {%csrf_token%}
+    <div class="tits">注册</div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">用户名:</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用户号" required name="username">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">密　码:</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" required name="password">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">密　码:</label>
+      <input type="email" class="form-control" id="exampleInputPassword1" placeholder="请输入邮箱" required name="email">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">注 册</button>
+      <a href="/" class="btn btn-success">返回登录</a>
+    </div>
+  </form>
+  {%endif%}
+  <script src="{%static 'js/canvas.js'%}" charset="utf-8"></script>
+  <script type="text/javascript">
+
+  </script>
+</body>
+</html>

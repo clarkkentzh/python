@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Form test 1</h1>
+    {{a}}
+    <form class="" action="" method="post">
+    {%csrf_token%}
+    {%for field in form%}
+    <div>
+      {{field.label}}:{{field}}
+      {{field.errors}}
+    </div>
+    {%endfor%}
+    <div class = "fieldWrapper">
+      <p><input type="submit" value = "添加"></p>
+    </div>
+    </form>
+
+</body>
+</html>

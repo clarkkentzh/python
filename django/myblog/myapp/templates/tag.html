@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tags</title>
+</head>
+<body>
+  {% if a > 1 %}
+  <h1>a > 1</h1>
+  {% elif a == 1 %}
+  <h1>a = 1</h1>
+  {% else %}
+  <h1>hahahaha</h1>
+  {% endif %}
+
+  {% for i in b %}
+  <h4>{{i}}</h4>
+  {% endfor %}
+
+<!-- 这是字典的遍历方法，需要字典用items方法，然后key和值value -->
+  {% for key,value in c.items %}
+  <h5>{{key}}:{{value}}</h5>
+  {% endfor %}
+</body>
+</html>

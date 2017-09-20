@@ -10,6 +10,7 @@ def fun1():
 
 def fun2():
     print "run in fun2"
+# 这是人为的阻塞操作
     gevent.sleep(4)
     print "switch fun2 agin"
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>form 表单</title>
+</head>
+<body>
+  <h1>Contact us</h1>
+  {%if errors%}
+  <ul>
+    {%for error in errors%}
+    <li>{{error}}</li>
+    {%endfor%}
+  </ul>
+  {%endif%}
+
+  <form class="" action="/form_post/" method="post">
+    {%csrf_token%}
+    <p>主题：<input type="text" name = "subject" value = "{{subject}}"></p>
+    <p>邮箱：<input type="text" name = "email" value = "{{email}}"></p>
+    <p>内容：<textarea name="message" cols="50" rows="10">{{message}}</textarea></p>
+    <input type="submit" value = "提交">
+  </form>
+
+</body>
+</html>

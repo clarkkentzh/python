@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>filter</title>
+</head>
+<body>
+  {{a | upper | lower}}
+  <h1>{{b | add:"3"}}</h1>
+
+  {% load poll_extras %}
+  <h1>filter:{{c | myfilter:" "}}</h1>
+</body>
+</html>

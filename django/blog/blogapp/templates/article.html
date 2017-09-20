@@ -1,0 +1,26 @@
+<div class="container artic_can">
+  <div class="article write">
+    <form enctype="multipart/form-data" action="" method="post" id="article_form" class="write_form">
+      {%csrf_token%}
+      <fieldset class="module aligned ">
+        <div class="form-row field-title">
+            <span>标题：</span>
+            <input type="text" required name="title" id="id_title"  maxlength="50" class="form-control"/>
+        </div>
+        <br>
+        <div class="form-row field-desc">
+            <span>类别：</span>
+            <select size="1" name="lei" class="btn btn-success">
+              <option value="a" selected="selected">杂文</option>
+              <option value="t">旅游</option>
+              <option value="s">技术</option>
+            </select>
+        </div>
+        <div class="form-row field-content">
+            <span>内容：</span>
+            <textarea name="content" id="id_content" class='form-control cons'></textarea>
+        </div>
+        <button class="btn btn-success" type="submit">提交</button>
+      </form>
+    </div>
+  </div>

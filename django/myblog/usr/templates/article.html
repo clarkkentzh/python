@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>写点什么</title>
+    <script type="text/javascript" src="/static/js/kindeditor-4.1.10/kindeditor-min.js"></script>
+    <script type="text/javascript" src="/static/js/kindeditor-4.1.10/lang/zh_CN.js"></script>
+    <script type="text/javascript" src="/static/js/kindeditor-4.1.10/config.js"></script>
+  </head>
+  <body>
+    <div id="content" class="colM">
+    <h1>我的文章</h1>
+    {%if errors%}
+    <ul>
+      {%for error in errors%}
+        <li>{{error}}</li>
+      {%endfor%}
+    </ul>
+    {%endif%}
+    <form enctype="multipart/form-data" action="" method="post" id="article_form">
+      {%csrf_token%}
+      <fieldset class="module aligned ">
+        <div class="form-row field-title">
+            <div>
+              <label class="required" for="id_title">文章标题:</label>
+              <input type="text" name="title" id="id_title"  maxlength="50" value = "{{title}}"/>
+            </div>
+
+        </div>
+          <hr>
+            <div class="form-row field-desc">
+              <div>
+                <label class="required" for="id_desc">文章描述:</label>
+                <input type="text" name="desc" id="id_desc" maxlength="50"  value = "{{desc}}"/>
+              </div>
+
+            </div>
+          <hr>
+        <div class="form-row field-content">
+              <div>
+                  <label class="required" for="id_content">文章内容:</label>
+                  <textarea name="content" id="id_content"  value = "{{content}}"></textarea>
+
+              </div>
+
+        </div>
+        <input type="submit" value="保存" class="default" name="_save" />
+      </form>
+  </body>
+</html>
